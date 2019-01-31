@@ -1,0 +1,28 @@
+{%  extends 'layout.html' %}
+{% block content %}
+    {{ super() }}
+    {#    tovi#}
+{#    {{data.age}}#}
+{#    {% if data.age < 18 %}#}
+{#        {{ data.name }}#}
+{#    {% elif data.age == 18 %}#}
+{#        do something#}
+{#    {% else %}#}
+{#        {{ data.age }}#}
+{#    {% endif %}#}
+    {# jinja2#}
+    {% with messages = get_flashed_messages() %}
+    {% for msg in messages %}
+        <div>{{ msg }}</div>
+    {% endfor %}
+    {% endwith %}
+    {% if data.age == 18 %}
+        {{ data.school | default('no name') }}
+    {% endif %}
+    {% for key,value in data.items() %}
+{#        <div>111</div>#}
+        <div>{{ key }}</div>
+        <div>{{ value }}</div>
+    {% endfor %}
+{% endblock %}
+
